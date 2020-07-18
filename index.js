@@ -13,9 +13,7 @@ Navigation.events().registerAppLaunchedListener(() => {
               name: 'blog.Tour',
               options: {
                 topBar: {
-                  title: {
-                    text: '                       Welcom To Pak Tourism',
-                  },
+                  visible: false,
                 },
               },
             },

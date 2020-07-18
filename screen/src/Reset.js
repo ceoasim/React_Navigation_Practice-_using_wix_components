@@ -1,33 +1,19 @@
 import React, {Component} from 'react';
 import {
   View,
-  TouchableOpacity,
   Text,
+  TouchableOpacity,
   TextInput,
   StyleSheet,
+  Button,
 } from 'react-native';
 import {Navigation} from 'react-native-navigation';
-import {Container, Icon, Header, Button, Left, Right, Body} from 'native-base';
+import {Container, Icon, Header, Left, Right, Body} from 'native-base';
 import PropTypes from 'prop-types';
 
-export default class Signin extends Component {
+export default class Reset extends Component {
   static propTypes = {
     componentId: PropTypes.string,
-  };
-  pushViewPostScreen = () => {
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: 'blog.Sidebar',
-        passProps: {
-          somePropToPass: 'Some props that we are passing',
-        },
-        options: {
-          topBar: {
-            visible: false,
-          },
-        },
-      },
-    });
   };
   pushViewPostScree3 = () => {
     Navigation.push(this.props.componentId, {
@@ -44,10 +30,10 @@ export default class Signin extends Component {
       },
     });
   };
-  pushViewPostScreen2 = () => {
+  pushViewPostScreen = () => {
     Navigation.push(this.props.componentId, {
       component: {
-        name: 'blog.Reset',
+        name: 'blog.Signin',
         passProps: {
           somePropToPass: 'Some props that we are passing',
         },
@@ -73,10 +59,9 @@ export default class Signin extends Component {
             <Icon style={{color: 'black'}} name="arrow-back" />
           </TouchableOpacity>
         </View>
+
         <View>
-          <Text style={{textAlign: 'center', fontSize: 30, marginTop: 30}}>
-            SIGN IN
-          </Text>
+          <Text style={styles.t1}>Reset Your Password</Text>
         </View>
         <View style={styles.container}>
           <TextInput
@@ -86,27 +71,13 @@ export default class Signin extends Component {
             placeholderTextColor="#9a73ef"
             autoCapitalize="none"
           />
-
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder="Password"
-            placeholderTextColor="#9a73ef"
-            autoCapitalize="none"
-          />
         </View>
 
         <TouchableOpacity
           style={styles.SubmitButtonStyle}
           activeOpacity={0.5}
           onPress={this.pushViewPostScreen}>
-          <Text style={styles.TextStyle}> SIGN IN </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{marginTop: 30}}
-          activeOpacity={0.5}
-          onPress={this.pushViewPostScreen2}>
-          <Text style={styles.tt}>Forget your password?</Text>
+          <Text style={styles.TextStyle}>Reset Your Password </Text>
         </TouchableOpacity>
       </View>
     );
@@ -118,9 +89,13 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
+  t1: {
+    textAlign: 'center',
+    fontSize: 30,
+    marginTop: 30,
+  },
   input: {
     marginTop: 30,
-
     fontSize: 16,
     height: 50,
     borderColor: '#7a42f4',
@@ -142,8 +117,6 @@ const styles = StyleSheet.create({
   TextStyle: {
     color: '#fff',
     textAlign: 'center',
-  },
-  tt: {
-    textAlign: 'center',
+    fontSize: 16,
   },
 });

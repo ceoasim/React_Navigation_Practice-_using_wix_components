@@ -1,9 +1,48 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, TouchableOpacity, View, Text, Image} from 'react-native';
 import {Container, Icon, Header, Button, Left, Right, Body} from 'native-base';
 import Images from './Images';
+import {Navigation} from 'react-native-navigation';
+import PropTypes from 'prop-types';
 import {ScrollView} from 'react-native-gesture-handler';
 export default class Frontheader extends Component {
+  static propTypes = {
+    componentId: PropTypes.string,
+  };
+  pushViewPostScreen = () => {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: 'blog.Rawalakot',
+        passProps: {
+          somePropToPass: 'Some props that we are passing',
+        },
+        options: {
+          topBar: {
+            title: {
+              text: '                 Rawalakot',
+            },
+          },
+        },
+      },
+    });
+  };
+  pushViewPostScreen2 = () => {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: 'blog.Tolipeer',
+        passProps: {
+          somePropToPass: 'Some props that we are passing',
+        },
+        options: {
+          topBar: {
+            title: {
+              text: '                 Tolipeer',
+            },
+          },
+        },
+      },
+    });
+  };
   render() {
     return (
       <View style={styles.main}>
@@ -19,8 +58,16 @@ export default class Frontheader extends Component {
           </Header>
         </Container>
         <ScrollView style={styles.scroll}>
-          <Images image={require('./1.jpg')} text={'Rawalakot'} />
-          <Images image={require('./2.jpg')} text={'Tolipeer Top'} />
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={this.pushViewPostScreen}>
+            <Images image={require('./1.jpg')} text={'Rawalakot'} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={this.pushViewPostScreen2}>
+            <Images image={require('./2.jpg')} text={'Toli-peer Top'} />
+          </TouchableOpacity>
           <Images image={require('./saji.jpg')} text={'Sajjikot Waterfall'} />
           <Images image={require('./mos.jpg')} text={'Faisal Mosque'} />
           <Images image={require('./bus.jpg')} text={'GT Road'} />
